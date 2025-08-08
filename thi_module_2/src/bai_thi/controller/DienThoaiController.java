@@ -12,7 +12,7 @@ public class DienThoaiController {
     public static void displayDienThoai() {
         boolean running = true;
         while (running) {
-            try {
+
                 System.out.println("-------CHƯƠNG TRÌNH QUẢN LÝ ĐIỆN THOẠI--------" +
                         "\n 1. Thêm mới " +
                         "\n 2. Xóa" +
@@ -41,11 +41,8 @@ public class DienThoaiController {
                         break;
                     default:
                         System.out.println("Nhập sai lựa chọn, vui lòng nhập lại!");
-                        break;
                 }
-            } catch (NumberFormatException e) {
-                System.out.println("Nhập sai định dạng! Vui lòng nhập số.");
-            }
+
         }
     }
 
@@ -97,7 +94,6 @@ public class DienThoaiController {
     }
     private static void delete() {
         String id = DienThoaiView.deleteDienThoai();
-
         if (!dienThoaiXachTayService.isIdExist(id)) {
             System.out.println("Không tìm thấy ID điện thoại");
             return;

@@ -60,14 +60,14 @@ public abstract class  DienThoai {
 
     @Override
     public String toString() {
-        return
-                "id=" + id +
-                ", ten='" + ten + '\'' +
-                ", gia=" + gia +
-                ", soLuong=" + soLuong +
-                ", nhaSanXuat='" + nhaSanXuat + '\'' ;
-
+        return  "\n - ID: " + id +
+                "\n   Tên: " + ten +
+                "\n   Giá: " + gia + " VNĐ" +
+                "\n   Số lượng: " + soLuong +
+                "\n   Nhà sản xuất: " + nhaSanXuat;
     }
+
+
     public String getInfoToFIle(){
         return this.id+","+this.ten+","+this.gia+","+this.soLuong+","+this.nhaSanXuat;
     }

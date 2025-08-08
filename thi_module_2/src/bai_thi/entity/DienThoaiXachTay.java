@@ -31,11 +31,12 @@ public class DienThoaiXachTay extends DienThoai {
 
     @Override
     public String toString() {
-        return "DienThoaiXachTay{" +super.toString()+
-                "quocGIaXachTay='" + quocGIaXachTay + '\'' +
-                ", trangThai='" + trangThai + '\'' +
-                '}';
+        return "\n[Điện thoại xách tay]" +
+                super.toString() +
+                "\n   Quốc gia xách tay: " + quocGIaXachTay +
+                "\n   Trạng thái: " + trangThai;
     }
+
     public String getInfoToFIle(){
         return super.getInfoToFIle()+","+this.quocGIaXachTay+","+this.trangThai+",,";
     }

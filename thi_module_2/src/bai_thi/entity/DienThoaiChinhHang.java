@@ -31,13 +31,14 @@ public class DienThoaiChinhHang extends DienThoai {
 
     @Override
     public String toString() {
-        return "DienThoaiChinhHang{" + super.toString()+
-                "thoiGianBaoHanh=" + thoiGianBaoHanh +
-                ", phamViBaoHanh='" + phamViBaoHanh + '\'' +
-                '}';
+        return "\n[Điện thoại chính hãng]" +
+                super.toString() +
+                "\n   Thời gian bảo hành: " + thoiGianBaoHanh + " tháng" +
+                "\n   Phạm vi bảo hành: " + phamViBaoHanh;
     }
+
     public String getInfoToFIle(){
-        return super.getInfoToFIle()+",,"+this.thoiGianBaoHanh+","+this.phamViBaoHanh;
+        return super.getInfoToFIle()+","+this.thoiGianBaoHanh+","+this.phamViBaoHanh;
     }
 
 }

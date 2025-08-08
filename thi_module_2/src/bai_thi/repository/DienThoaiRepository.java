@@ -12,24 +12,28 @@ public class DienThoaiRepository implements IDienThoaiRepository {
     private static final String DIETHOAI_FILE = "src/bai_thi/data/dienthoai.csv";
     @Override
     public List<DienThoai> findAll() {
-        List<DienThoai> xachTayList = new ArrayList<>();
-        List<DienThoai> chinhHangList = new ArrayList<>();
+        List<DienThoai> dienThoaiList = new ArrayList<>();
         List<String> stringList = ReadAndWrite.readFileCSV(DIETHOAI_FILE);
 
-        for (String s : stringList){
+        for (String s : stringList) {
             String[] array = s.split("\\s*,\\s*");
 
-            if (array[0].contains("XT")){
-                xachTayList.add(new DienThoaiXachTay(array[0],array[1],Integer.parseInt(array[2]),Integer.parseInt(array[3]),array[4],array[5],array[6]));
-            }else if (array[0].contains("CH")){
-                chinhHangList.add(new DienThoaiChinhHang(array[0],array[1],Integer.parseInt(array[2]),Integer.parseInt(array[3]),array[4],Integer.parseInt(array[5]),array[6]));
+            if (array[0].contains("XT")) {
+                dienThoaiList.add(new DienThoaiXachTay(
+                        array[0], array[1], Integer.parseInt(array[2]), Integer.parseInt(array[3]),
+                        array[4], array[5], array[6]
+                ));
+            } else if (array[0].contains("CH")) {
+                dienThoaiList.add(new DienThoaiChinhHang(
+                        array[0], array[1], Integer.parseInt(array[2]), Integer.parseInt(array[3]),
+                        array[4], Integer.parseInt(array[5]), array[6]
+                ));
             }
         }
-        List<DienThoai> sortedList = new ArrayList<>();
-        sortedList.addAll(xachTayList);
-        sortedList.addAll(chinhHangList);
-        return sortedList;
+
+        return dienThoaiList;
     }
+
 
 
     @Override
@@ -41,12 +45,10 @@ public class DienThoaiRepository implements IDienThoaiRepository {
             stringList.add((dienThoai).getInfoToFIle());
         }
         ReadAndWrite.writeFileCSV(DIETHOAI_FILE, stringList, true);
-
     }
 
     @Override
     public boolean delete(String id) {
-
         List<DienThoai> dienThoaiList = findAll();
         boolean check = false;
         for (int i = 0; i < dienThoaiList.size(); i++) {
